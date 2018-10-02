@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>input-number</title>
+</head>
+<body>
+    <ul>
+        <li><strong>基本要求</strong></li>
+        <li>只能输入数字，输入无效值（如汉字、特殊符号）时输入框内容变为输入前的内容</li>
+        <li>允许输入正负数、小数、整数，允许前后有空格、回车等空白字符(<code>trim()</code>方法)，均可识别为相应数字</li>
+        <li>数字有初始值、最大值、最小值，由父组件设置</li>
+        <li>有两个按钮，分别对数字加加减减，当加减之后会超过最大值或小于最小值时禁用相应按钮</li>
+        <li>当用户手动输入的值大于最大值时，输入框内容变为设定的最大值。小于最小值的情况同理</li>
+        <li>数值改变时，触发一个自定义事件on-change通知父组件</li>
+        <li><strong>附加要求</strong></li>
+        <li>在输入框聚焦时，增加对键盘上下键的支持，相当于点击加减按钮</li>
+        <li>父组件可以通过为该组件绑定step属性来控制该组件的加减步伐，比如设置为3，则每次加减数值都为3</li>
+    </ul>
+    <div id="app">
+        <input-number v-model="value" :max="21" :min="0" :step="2"></input-number>
+    </div>
+    <script src="../vue-dev.js"></script>
+    <script src="./input-number.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

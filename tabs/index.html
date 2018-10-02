@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tabs</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <tabs v-model="activeKey">
+            <pane label="标签1" name="label1">
+                <h1>标签1的内容</h1>
+            </pane>
+            <pane label="标签2" name="label2">
+                <h2>标签2的内容</h2>
+            </pane>
+            <pane label="标签3" name="label3">
+                <h3>标签3的内容</h3>
+            </pane>
+        </tabs>
+    </div>
+    <script src="../vue-dev.js"></script>
+    <script src="./tabs.js"></script>
+    <script src="./pane.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                activeKey: 'label1'
+            },
+            watch: {
+                activeKey(val) {
+                    console.log('watcher: activeKey changed to', this.activeKey)
+                }
+            },
+            methods: {
+                handleInput(event) {
+                    console.log('handleInput:',event)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
